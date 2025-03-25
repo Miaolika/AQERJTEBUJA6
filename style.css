@@ -3,13 +3,14 @@ body::before {
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
     background-image: url("evilSigil.jpg");
-    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    background-size: contain; /* 原 cover 改成 contain */
     opacity: 1;
     z-index: -1;
     animation: slowSpin 120s linear infinite;
     transform-origin: center center;
+    transform: scale(0.75); /* 新增缩放 */
 }
 
 body { 
