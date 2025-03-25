@@ -1,0 +1,88 @@
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: url("evilSigil.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 1;
+    z-index: -1;
+    animation: slowSpin 120s linear infinite;
+    transform-origin: center center;
+}
+
+body { 
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    text-align: center;
+}
+
+/* 内容块样式 */
+#content {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    display: inline-block;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    z-index: 1;
+    position: relative;
+    display: none; /* 默认隐藏 */
+}
+
+video {
+    margin-top: 20px;
+}
+
+h2 {
+    margin: 0;
+    color: #222;
+    line-height: 1.5;
+}
+
+span {
+    cursor: pointer;
+}
+
+/* 旋转背景动画 */
+@keyframes slowSpin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* 语言选择样式 */
+#languageSelect {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    z-index: 2;
+}
+
+.lang-button {
+    font-size: 24px;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    background-color: #111;
+    color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    transition: background-color 0.3s;
+}
+
+.lang-button:hover {
+    background-color: #333;
+}

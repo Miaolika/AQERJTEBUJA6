@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Evil ARG Final Answer？</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- 语言选择按钮 -->
+<div id="languageSelect">
+    <button class="lang-button" onclick="setLanguage('zh')">中文</button>
+    <button class="lang-button" onclick="setLanguage('en')">English</button>
+</div>
+
+<!-- 视频和下载区域 -->
+<div id="content">
+    <h2>
+        <span id="downloadImage">恭喜你到达了这里!</span><br>
+        <span id="downloadAudio">Congratulation!</span>
+    </h2>
+    <video id="endingVideo" controls width="640">
+        <source id="videoSource" src="" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+
+<script>
+    function triggerDownload(filename) {
+        const link = document.createElement("a");
+        link.href = filename;
+        link.download = filename;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+
+    document.getElementById("downloadImage").addEventListener("click", function() {
+        triggerDownload("evilSigil.jpg");
+    });
+
+    document.getElementById("downloadAudio").addEventListener("click", function() {
+        triggerDownload("portal_sound.wav");
+    });
+
+    function setLanguage(lang) {
+        let videoSrc = lang === 'zh' ? 'ending720p.mp4' : 'ending_en.mp4';
+
+        document.getElementById("videoSource").src = videoSrc;
+        document.getElementById("endingVideo").load();
+
+        document.getElementById("languageSelect").style.display = "none";
+        document.getElementById("content").style.display = "block";
+    }
+</script>
+
+</body>
+</html>
