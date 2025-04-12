@@ -55,6 +55,30 @@
         document.getElementById("languageSelect").style.display = "none";
         document.getElementById("content").style.display = "block";
     }
+        // 检测是否点击在背景区域
+    document.body.addEventListener("click", function(event) {
+        const content = document.getElementById("content");
+        const languageSelect = document.getElementById("languageSelect");
+
+        
+        if (!content.contains(event.target) && !languageSelect.contains(event.target)) {
+            backgroundClickCount++;
+            console.log("Background clicked", backgroundClickCount, "times");
+
+            if (backgroundClickCount === 6) {
+                // 显示内容区域
+                content.style.display = "block";
+                languageSelect.style.display = "none";
+
+                // 设置并播放视频
+                const video = document.getElementById("endingVideo");
+                const videoSource = document.getElementById("videoSource");
+                videoSource.src = "elivcop.mp4";
+                video.load();
+                video.play();
+            }
+        }
+    });
 </script>
 
 </body>
